@@ -38,7 +38,7 @@ class Raindrop {
   this.acc = createVector(0, 0);
   this.length = 15;
   this.r = 0;
-  this.c = color(18,105,255);
+  this.c = color(random(0,255),0,random(0,255));
   this.mass = m;
   this.opacity = 100;
   }
