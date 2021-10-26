@@ -5,7 +5,8 @@ I made my first github repository in the class :)
 
 ## Myself
 *Yewon Kim* / *iaintcray@gmail.com* 
-<strong> Seoul Institute of the Arts 
+
+Seoul Institute of the Arts 
 > Major of Digital Art_Interactive Art
 
 ***
