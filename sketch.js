@@ -67,7 +67,7 @@ class Raindrop {
       this.vel.y *= -1;
       this.pos.y = height;
       this.length = random(1,50);
-      this.c = color(random(50,255),0,0);
+      this.c = color(random(0,255),0,0);
     }
   }
 }
