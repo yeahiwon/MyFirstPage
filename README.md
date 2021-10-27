@@ -8,8 +8,7 @@
 ## Myself
 *Yewon Kim* / ☎ *iaintcray@gmail.com*
 
-> Seoul Institute of the Arts
-> Major of Digital Art_Interactive Art
+> Seoul Institute of the Arts / Major of Digital Art 
 
 
 
