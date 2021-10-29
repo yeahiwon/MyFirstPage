@@ -2,27 +2,25 @@ let cnv, d, g;
 let raindrop = [];
 var impressingNow = true;
 
-
 function setup() {
   cnv = createCanvas(600, 600);
   cnv.mouseWheel(changeSize);
   d = 0;
 
-  for(let i = 0; i < raindrop.length; i++) {
+  for(let i = 0; i < 1000; i++) {
     raindrop[i] = new Raindrop(random(0, 400), random(0, -1000), random(0, 10));
   }
 }
 
 function draw() {
-  background(220);
+  background(100);
 
-  if (impressingNow == true) {
-   for (i = 0; i < raindrop.length; i++) {
-     raindrop[i].dropRain();
-     raindrop[i].splash();
-   }
-}
-
+ if (impressingNow == true) {
+    for (i = 0; i < raindrop.length; i++) {
+      raindrop[i].dropRain();
+      raindrop[i].splash();
+    }
+ }
   for(let i=0; i < raindrop.length; i++) {
     let gravity = createVector(0, 0.01 * raindrop[i].mass);
     let wind = createVector(d, 0);
@@ -38,24 +36,28 @@ function draw() {
 class Raindrop {
 
   constructor(x, y, m) {
+
   this.x = x;
   this.y = y;
-  this.r = 0;
+  //this.gravity = 9.8;
   this.length = 15;
+  this.r = 0;
   this.opacity = 200;
   this.pos = createVector(x, y);
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0);
-  this.c = color(random(0,255),0,0);
+  this.c = color(18,105,random(100,255));
   this.mass = m;
 
-  this.dropRain = function() {
+    this.dropRain = function() {
     noStroke();
     fill(255);
+    //rect(this.x, this.y,3,15);
     ellipse(this.x, this.y, 3, this.length);
-    this.y = this.y + 6
+    this.y = this.y + 6 //+ frameCount/60;
     if (this.y > 540) {
       this.length = this.length - 5;
+      //this.y= random(0,-100);
     }
     if (this.length < 0) {
       this.length = 0;
@@ -64,6 +66,7 @@ class Raindrop {
 
   this.splash = function() {
     strokeWeight(2);
+    //stroke(245, 200/frameCount);
     stroke(245, this.opacity);
     noFill();
     if (this.y > 540) {
@@ -80,7 +83,8 @@ class Raindrop {
       }
     }
   }
-  }
+}
+
 
   update() {
     this.vel.add(this.acc);
@@ -106,14 +110,16 @@ class Raindrop {
       this.vel.y *= -1;
       this.pos.y = height;
       this.length = random(1,50);
-      this.c = color(random(0,255),0,0);
+      this.c = color(random(50,255),0,0);
     }
   }
 }
+
+
 function changeSize(event) {
   if (event.deltaY > 0) {
-    d = d + 0.0001;
+    d = d + 0.001;
   } else {
-    d = d - 0.0001;
+    d = d - 0.001;
   }
 }
