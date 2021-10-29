@@ -13,7 +13,10 @@ function setup() {
 }
 
 function draw() {
-  background(100);
+background(100);
+fill(170, 150, 146, 240);
+rect(0, 520, 600, 520);
+
 
  if (impressingNow == true) {
     for (i = 0; i < raindrop.length; i++) {
@@ -39,7 +42,6 @@ class Raindrop {
 
   this.x = x;
   this.y = y;
-  //this.gravity = 9.8;
   this.length = 15;
   this.r = 0;
   this.opacity = 200;
@@ -52,12 +54,10 @@ class Raindrop {
     this.dropRain = function() {
     noStroke();
     fill(255);
-    //rect(this.x, this.y,3,15);
     ellipse(this.x, this.y, 3, this.length);
-    this.y = this.y + 6 //+ frameCount/60;
+    this.y = this.y + 6
     if (this.y > 540) {
       this.length = this.length - 5;
-      //this.y= random(0,-100);
     }
     if (this.length < 0) {
       this.length = 0;
@@ -66,7 +66,6 @@ class Raindrop {
 
   this.splash = function() {
     strokeWeight(2);
-    //stroke(245, 200/frameCount);
     stroke(245, this.opacity);
     noFill();
     if (this.y > 540) {
