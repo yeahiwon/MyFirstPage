@@ -8,7 +8,7 @@ function setup() {
   cnv.mouseWheel(changeSize);
   d = 0;
 
-  for(let i = 0; i < 1000; i++) {
+  for(let i = 0; i < raindrop.length; i++) {
     raindrop[i] = new Raindrop(random(0, 400), random(0, -1000), random(0, 10));
   }
 }
