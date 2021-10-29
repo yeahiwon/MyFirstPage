@@ -4,7 +4,7 @@ let raindrop = [];
 
 
 function setup() {
-  cnv = createCanvas(400, 400);
+  cnv = createCanvas(600, 600);
   cnv.mouseWheel(changeSize);
   d = 0;
 
