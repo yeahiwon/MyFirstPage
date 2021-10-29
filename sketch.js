@@ -14,7 +14,7 @@ function setup() {
 
 function draw() {
 background(100);
-fill(170, 150, 146, 240);
+fill(255, 192, 203);
 rect(0, 520, 600, 520);
 
 
