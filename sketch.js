@@ -1,6 +1,6 @@
 let cnv, d, g;
 let raindrop = [];
-
+var impressingNow = true;
 
 
 function setup() {
@@ -16,7 +16,12 @@ function setup() {
 function draw() {
   background(220);
 
-
+  if (impressingNow == true) {
+   for (i = 0; i < raindrop.length; i++) {
+     raindrop[i].dropRain();
+     raindrop[i].splash();
+   }
+}
 
   for(let i=0; i < raindrop.length; i++) {
     let gravity = createVector(0, 0.01 * raindrop[i].mass);
@@ -33,14 +38,51 @@ function draw() {
 class Raindrop {
 
   constructor(x, y, m) {
+  this.x = x;
+  this.y = y;
+  this.r = 0;
+  this.length = 15;
+  this.opacity = 200;
   this.pos = createVector(x, y);
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0);
-  this.length = 15;
-  this.r = 0;
   this.c = color(random(0,255),0,0);
   this.mass = m;
-  this.opacity = 100;
+
+  this.dropRain = function() {
+    noStroke();
+    fill(255);
+    rect(this.x, this.y,3,15);
+    ellipse(this.x, this.y, 3, this.length);
+    this.y = this.y + 6 + frameCount/60;
+    if (this.y > 540) {
+      this.length = this.length - 5;
+      this.y= random(0,-100);
+    }
+    if (this.length < 0) {
+      this.length = 0;
+    }
+  }
+
+  this.splash = function() {
+    strokeWeight(2);
+    stroke(245, 200/frameCount);
+    stroke(245, this.opacity);
+    noFill();
+    if (this.y > 540) {
+      ellipse(this.x, 550, this.r * 2, this.r / 2);
+      this.r++;
+      this.opacity = this.opacity - 10;
+
+      //keep the rain dropping
+      if (this.opacity < 0) {
+        this.y = random(0, -100);
+        this.length = 15;
+        this.r = 0;
+        this.opacity = 200;
+      }
+    }
+  }
   }
 
   update() {
