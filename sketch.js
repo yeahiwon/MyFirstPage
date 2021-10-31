@@ -1,11 +1,12 @@
 let cnv, d, g;
 let raindrop = [];
 var impressingNow = true;
-let poet, newPoet;
+let poet, newPoet, night;
 
 function preload() {
   poet = loadImage('poet.jpg');
   newPoet = loadImage('newPoet.jpg');
+  night = loadImage('night.jpg');
 }
 
 function setup() {
@@ -131,6 +132,10 @@ function changeSize(event) {
   } else {
     d = d - 0.001;
   }
+}
+
+function mouseClicked() {
+  image(night,0, 0);
 }
 
 function keyPressed(){
