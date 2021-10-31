@@ -129,3 +129,9 @@ function changeSize(event) {
     d = d - 0.001;
   }
 }
+
+function keyPressed(){
+  if (key == ' '){
+    raindrop.splice(0, 1);
+  }
+}
