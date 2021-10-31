@@ -22,6 +22,7 @@ function draw() {
 background(100);
 image(newPoet,0, 0);
 
+// ground
 let x = map(mouseX, 0, width, 0, 200);
 fill(x, 192, 203);
 rect(0, 520, 600, 520);
