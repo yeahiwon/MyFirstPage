@@ -1,10 +1,11 @@
 let cnv, d, g;
 let raindrop = [];
 var impressingNow = true;
-let poet;
+let poet, newPoet;
 
 function preload() {
   poet = loadImage('poet.jpg');
+  newPoet = loadImage('newPoet.jpg');
 }
 
 function setup() {
@@ -19,7 +20,7 @@ function setup() {
 
 function draw() {
 background(100);
-image(poet,0, 0);
+image(newPoet,0, 0);
 fill(255, 192, 203);
 rect(0, 520, 600, 520);
 
