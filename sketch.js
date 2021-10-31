@@ -135,7 +135,7 @@ function changeSize(event) {
 }
 
 function mouseClicked() {
-  image(night,0, 0);
+  saveCanvas(cnv, 'Shaking heart', 'jpg');
 }
 
 function keyPressed(){
