@@ -1,6 +1,11 @@
 let cnv, d, g;
 let raindrop = [];
 var impressingNow = true;
+let poet;
+
+function preload() {
+  poet = loadImage('poet.jpg');
+}
 
 function setup() {
   cnv = createCanvas(600, 600);
@@ -14,6 +19,7 @@ function setup() {
 
 function draw() {
 background(100);
+image(poet,0, 0);
 fill(255, 192, 203);
 rect(0, 520, 600, 520);
 
